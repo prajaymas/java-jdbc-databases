@@ -42,7 +42,7 @@ public class GetOrderDao {
                 orderDto.setOrderId(rs.getLong("order_id"));
                 orderDto.setCustomerId(rs.getLong("order_customer_id"));
                 orderDto.setDate(rs.getTimestamp("order_date"));
-                orderDto.setStatus(rs.getString("order_status"))
+                orderDto.setStatus(rs.getString("order_status"));
             }
 
         } catch (SQLException ex) {
@@ -61,7 +61,7 @@ public class GetOrderDao {
      */
     private PreparedStatement createPreparedStatement(Connection con, long orderId) throws SQLException {
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setLong( parameterIndex: 1, orderId);
+        ps.setLong(1, orderId);
         return ps;
     }
 
